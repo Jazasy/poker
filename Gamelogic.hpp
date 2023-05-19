@@ -43,6 +43,7 @@ public:
     bool magas_lapgetter();
     void magasell();
     void zsetonalap();
+    void kartyaidsetter(std::vector<std::vector<int>> alap);
 };
 
 #endif // GAMELOGIC_HPP_INCLUDED

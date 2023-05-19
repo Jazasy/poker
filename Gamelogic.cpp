@@ -257,6 +257,11 @@ int Gamelogic::darabmeghat(int keresett_szam)
     return szamlalo;
 }
 
+void Gamelogic::kartyaidsetter(std::vector<std::vector<int>> alap)
+{
+    lapok = alap;
+}
+
 void Gamelogic::zsetonalap()
 {
     zsetonok = 10;

@@ -15,6 +15,7 @@ class Grafika
     Gamelogic* logiccop;
     Gomb* kiosztogomb;
     Gomb* mutatogomb;
+    Gomb* startgomb;
     Kartya* kartya;
     Kartya* kartya1;
     Kartya* kartya2;
@@ -34,6 +35,7 @@ public:
     void zsetonszoveg();
     bool grafikagetkiosztogombbool();
     bool grafikagetmutatogombbool();
+    bool grafikagetstartgombool();
     void grafikakartyaidsetter();
     int numgettergetter();
     void grafcsere();
@@ -42,7 +44,7 @@ public:
     void nyeremenyek();
     bool mutatogombboolsettersetter(bool ih);
     void allin();
-    void startkepernyo();
+    void startkepernyo(genv::event ev);
     void meghaltalfelirat();
 };
 

@@ -9,6 +9,7 @@ Grafika::Grafika(int _XX, int _YY, Gamelogic* _logic) : XX(_XX), YY(_YY), logicc
 {
     kiosztogomb = new Gomb(XX/2-10-110/2+10+10-10, YY-10-50, 110, 50, "DEAL");
     mutatogomb = new Gomb(XX/2-10-110/2+10+10-10, YY-10-50-10-50, 110, 50, "SHOW");
+    startgomb = new Gomb(XX/2-220/2, YY/2-80/2, 220, 80, "START");
     kartya = new Kartya(10+72*0+10*0, 2.5*YY/4, 0, 0);
     kartya1 = new Kartya(10+72*1+10*1, 2.5*YY/4, 0, 0);
     kartya2 = new Kartya(10+72*2+10*2, 2.5*YY/4, 0, 0);
@@ -59,9 +60,11 @@ void Grafika::jatekrajz(genv::event ev, bool ih)
     }
 }
 
-void Grafika::startkepernyo()
+void Grafika::startkepernyo(genv::event ev)
 {
+    tet->numsetter(2);
     hatter();
+    startgomb->kirajzol(ev);
 }
 
 void Grafika::meghaltalfelirat()
@@ -143,6 +146,11 @@ bool Grafika::grafikagetkiosztogombbool()
     return kiosztogomb->visszaadbool();
 }
 
+bool Grafika::grafikagetstartgombool()
+{
+    return startgomb->visszaadbool();
+}
+
 void Grafika::grafikakartyaidsetter()
 {
     kartya->kartyaidsetter(logiccop->lapokgetter()[0]);
@@ -157,7 +165,7 @@ void Grafika::nyeremenyfelirat()
 {
     genv::gout << genv::font("LiberationSans-Regular.ttf",50);
     if(logiccop->semmigetter())
-        genv::gout<<genv::move_to(XX/2-genv::gout.twidth("SEMMI :'(")/2, 2.5*YY/4-90)<<genv::color(255,255,255)<<genv::text("SEMMI :'(");
+        genv::gout<<genv::move_to(XX/2-genv::gout.twidth("NOTHING :'(")/2, 2.5*YY/4-90)<<genv::color(255,255,255)<<genv::text("NOTHING :'(");
     if(logiccop->magas_lapgetter())
         genv::gout<<genv::move_to(XX/2-genv::gout.twidth("HIGH")/2, 2.5*YY/4-90)<<genv::color(255,255,255)<<genv::text("HIGH");
     if(logiccop->parboolgetter())
