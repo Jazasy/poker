@@ -524,7 +524,7 @@
 	"widget.hpp"
 	"graphics.hpp"
 
-1684447040 e:\programozás\github\poker\kartya.hpp
+1684455248 e:\programozás\github\poker\kartya.hpp
 	"widget.hpp"
 	"graphics.hpp"
 	<vector>
@@ -546,7 +546,7 @@
 	"graphics.hpp"
 	<string>
 
-1684450262 source:e:\programozás\github\poker\grafika.cpp
+1684453238 source:e:\programozás\github\poker\grafika.cpp
 	"grafika.hpp"
 	"graphics.hpp"
 	<vector>
@@ -947,7 +947,7 @@
 
 1677893378 e:\programozás\github\poker\graphicslib\keytbl.h
 
-1684449869 source:e:\programozás\github\poker\kartya.cpp
+1684455540 source:e:\programozás\github\poker\kartya.cpp
 	"kartya.hpp"
 	"graphics.hpp"
 	<fstream>

@@ -8,7 +8,6 @@ class Kartya : public Widget
 {
     std::vector<std::vector<int>> pixelek;
     std::vector<std::vector<std::vector<std::vector<int>>>> kartyarajzok;
-    int kartyarajzoktomb[52][96][72][3];
     int s;
     int id;
     std::vector<int> _kartyaid;
@@ -16,7 +15,7 @@ public:
     Kartya(int _x, int _y, int _sx, int _sy);
     std::vector<std::vector<int>> beolvasas(std::string nev);
     void kirajzol(genv::event ev);
-    void kartyarajz(std::vector<int> _kartyaid);
+    void kartyarajz();
     void kivalaszt(genv::event ev);
     void megtartfelirat();
     void osszeskartyabeolvas();
@@ -24,6 +23,7 @@ public:
     bool kartyafokuszboolgetter();
     void kartyafokuszboolsetter();
     void osszeskartyabeolvastombe();
+    void kartyarajztreffkiralyra();
 };
 
 #endif // KARTYA_HPP_INCLUDED

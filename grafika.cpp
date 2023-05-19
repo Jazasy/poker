@@ -107,6 +107,7 @@ int Grafika::numgettergetter()
         std::cout<<logiccop->lapokgetter()[i][0]<<", "<<logiccop->lapokgetter()[i][1]<<std::endl;
     }
     std::cout<<std::endl;
+
     int szam = tet->numgetter();
     return szam;
 }

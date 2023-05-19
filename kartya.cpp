@@ -15,7 +15,10 @@ void Kartya::kirajzol(genv::event ev)
     posxy(ev);
     kivalaszt(ev);
     megtartfelirat();
-    kartyarajz(_kartyaid);
+    if(_kartyaid[0]==0 && _kartyaid[1]==11)
+        kartyarajztreffkiralyra();
+    else
+        kartyarajz();
 }
 
 std::vector<std::vector<int>> Kartya::beolvasas(std::string nev)
@@ -43,7 +46,25 @@ std::vector<std::vector<int>> Kartya::beolvasas(std::string nev)
     return _pixelek;
 }
 
-void Kartya::kartyarajz(std::vector<int> _kartyaid)
+void Kartya::kartyarajztreffkiralyra()
+{
+    if(_kartyaid[0] != -1 && _kartyaid[1] != -1)
+    {
+        for(int i=0; i<sy-2; i++)
+        {
+            for(int j=0; j<sx; j++)
+            {
+                genv::gout<<genv::move_to(x+j,y+i)<<genv::color(kartyarajzok[_kartyaid[0]][_kartyaid[1]][s][0],kartyarajzok[_kartyaid[0]][_kartyaid[1]][s][1],kartyarajzok[_kartyaid[0]][_kartyaid[1]][s][2])<<genv::dot;
+                s++;
+            }
+        }
+        s=0;
+        genv::gout<<genv::move_to(x+1,y+sy-2)<<genv::color(255,255,255)<<genv::line(sx-2,0);
+        genv::gout<<genv::move_to(x+2,y+sy-1)<<genv::color(255,255,255)<<genv::line(sx-4,0);
+    }
+}
+
+void Kartya::kartyarajz()
 {
     if(_kartyaid[0] != -1 && _kartyaid[1] != -1)
     {
@@ -92,11 +113,6 @@ void Kartya::megtartfelirat()
 void Kartya::kartyaidsetter(std::vector<int> _id)
 {
     _kartyaid = _id;
-}
-
-void Kartya::osszeskartyabeolvastombe()
-{
-
 }
 
 void Kartya::osszeskartyabeolvas()
