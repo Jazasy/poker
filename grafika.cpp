@@ -7,9 +7,9 @@
 
 Grafika::Grafika(int _XX, int _YY, Gamelogic* _logic) : XX(_XX), YY(_YY), logiccop(_logic)
 {
-    tet = new Numdisp(10, YY-10-50, 150, 50, 100);
-    kiosztogomb = new Gomb(10+150+10, YY-10-50, 110, 50, "Deal");
-    mutatogomb = new Gomb(10+150+10, YY-10-50-10-50, 110, 50, "Show");
+    tet = new Numdisp(10, YY-10-50, XX/2-10-110/2-10, 50, 100);
+    kiosztogomb = new Gomb(XX/2-10-110/2+10+10-10, YY-10-50, 110, 50, "DEAL");
+    mutatogomb = new Gomb(XX/2-10-110/2+10+10-10, YY-10-50-10-50, 110, 50, "SHOW");
     kartya = new Kartya(10+72*0+10*0, 2.5*YY/4, 0, 0);
     kartya1 = new Kartya(10+72*1+10*1, 2.5*YY/4, 0, 0);
     kartya2 = new Kartya(10+72*2+10*2, 2.5*YY/4, 0, 0);
@@ -17,7 +17,7 @@ Grafika::Grafika(int _XX, int _YY, Gamelogic* _logic) : XX(_XX), YY(_YY), logicc
     kartya4 = new Kartya(10+72*4+10*4, 2.5*YY/4, 0, 0);
     nyeremenytablazatszoveg = new Menu(10, 10, XX/2-10, YY/2.5, {"Royal Flush", "Straight Flush", "Four of a Kind", "Full", "Flush", "Straight", "Drill", "Two Pair", "Pair", "High"});
     nyeremenytablazatszam = new Menu(XX/2, 10, XX/2-10, YY/2.5, {std::to_string(tet->numgetter()*20), std::to_string(tet->numgetter()*10), std::to_string(tet->numgetter()*7), std::to_string(tet->numgetter()*6), std::to_string(tet->numgetter()*5), std::to_string(tet->numgetter()*4), std::to_string(tet->numgetter()*3), std::to_string(tet->numgetter()*2), std::to_string(tet->numgetter()*20), "+1"});
-    zsetonok = new Menu(10+150+10+110+10, YY-60, 120, 50, logiccop->zsetongetter());
+    zsetonok = new Menu(XX/2-10-110/2+10+10-10+110+10, YY-60, XX/2-10-110/2-10, 50, logiccop->zsetongetter());
     widgetek.push_back(tet);
     widgetek.push_back(kiosztogomb);
     widgetek.push_back(mutatogomb);
@@ -70,8 +70,7 @@ void Grafika::zsetonszoveg()
 {
     genv::gout << genv::font("LiberationSans-Regular.ttf",30);
     zsetonok->szovegsetter(logiccop->zsetongetter());
-    //std::cout<<logiccop->zsetongetter()[0]<<std::endl;
-    genv::gout<<genv::move_to(10+150+10+110+10, YY-60-40)<<genv::color(255,255,255)<<genv::text("Chip:");
+    genv::gout<<genv::move_to(XX/2-10-110/2+10+10-10+110+10, YY-60-40)<<genv::color(255,255,255)<<genv::text("CHIP:");
 }
 
 void Grafika::grafcsere()
@@ -153,7 +152,10 @@ void Grafika::nyeremenyfelirat()
     if(logiccop->pokergetter())
         genv::gout<<genv::move_to(XX/2-genv::gout.twidth("FOUR OF A KIND ^o^")/2, 2.5*YY/4-90)<<genv::color(255,255,255)<<genv::text("FOUR OF A KIND ^o^");
     if(logiccop->szinsorgetter())
-        genv::gout<<genv::move_to(0, 2.5*YY/4-90)<<genv::color(0,255,255)<<genv::text("STRAIGHTFLUSH");
+    {
+        genv::gout<<genv::move_to(XX/2-genv::gout.twidth("STRAIGHT")/2, 2.5*YY/4-90-25)<<genv::color(0,255,255)<<genv::text("STRAIGHT");
+        genv::gout<<genv::move_to(XX/2-genv::gout.twidth("FLUSH")/2, 2.5*YY/4-90+25)<<genv::color(0,255,255)<<genv::text("FLUSH");
+    }
     if(logiccop->royal_flushgetter())
         genv::gout<<genv::move_to(XX/2-genv::gout.twidth("ROYAL FLUSH")/2, 2.5*YY/4-90)<<genv::color(255,223,0)<<genv::text("ROYAL FLUSH");
     if(logiccop->semmigetter())

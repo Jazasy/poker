@@ -29,7 +29,6 @@ void Widget::fokuszkeret()
         genv::gout<<genv::move_to(x-3, y-3)<<genv::color(255,0,0)<<genv::box(sx+2*3, sy+2*3);
     if(!fokusz)
     {
-        genv::gout<<genv::move_to(x-3, y-3)<<genv::color(0,0,0)<<genv::box(sx+2*3, sy+2*3);
         keret();
     }
 }

@@ -33,7 +33,7 @@ void Numdisp::kirajzol(event ev)
 void Numdisp::felirat()
 {
     gout << font("LiberationSans-Regular.ttf",30);
-    gout<<move_to(x,y-40)<<color(255,255,255)<<text("Bet:");
+    gout<<move_to(x,y-40)<<color(255,255,255)<<text("BET:");
 }
 
 int Numdisp::numgetter()
@@ -91,7 +91,7 @@ void Numdisp::nyille(event ev)
     if(kattintle(ev))
         gout<<move_to(nyilkoordx+3, nyilkoordy)<<color(255,0,0)<<box(-nyilsx-6, nyilsy+6);
     gout<<move_to(nyilkoordx, nyilkoordy+3);
-    gout<<color(126,200,80)<<box(-nyilsx,nyilsy);
+    gout<<color(125,255,85)<<box(-nyilsx,nyilsy);
     haromszogle();
     if(!kattintle(ev))
         gout<<color(0,0,0)<<move_to(nyilkoordx, nyilkoordy+3)<<line(0,nyilsy)<<line(-nyilsx,0)<<line(0,-nyilsy)<<line(nyilsx,0);

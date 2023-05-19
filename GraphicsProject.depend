@@ -541,12 +541,12 @@
 	<algorithm>
 	<iostream>
 
-1684495732 source:e:\programozás\github\poker\gomb.cpp
+1684498516 source:e:\programozás\github\poker\gomb.cpp
 	"gomb.hpp"
 	"graphics.hpp"
 	<string>
 
-1684495119 source:e:\programozás\github\poker\grafika.cpp
+1684498171 source:e:\programozás\github\poker\grafika.cpp
 	"grafika.hpp"
 	"graphics.hpp"
 	<vector>
@@ -947,7 +947,7 @@
 
 1677893378 e:\programozás\github\poker\graphicslib\keytbl.h
 
-1684493609 source:e:\programozás\github\poker\kartya.cpp
+1684496310 source:e:\programozás\github\poker\kartya.cpp
 	"kartya.hpp"
 	"graphics.hpp"
 	<fstream>
@@ -961,11 +961,11 @@
 	"graphics.hpp"
 	<iostream>
 
-1684495590 source:e:\programozás\github\poker\numdisp.cpp
+1684498686 source:e:\programozás\github\poker\numdisp.cpp
 	"numdisp.hpp"
 	"graphics.hpp"
 
-1684079685 source:e:\programozás\github\poker\widget.cpp
+1684498659 source:e:\programozás\github\poker\widget.cpp
 	"widget.hpp"
 	"graphics.hpp"
 

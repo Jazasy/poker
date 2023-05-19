@@ -106,7 +106,7 @@ void Kartya::megtartfelirat()
     if(fokusz)
     {
         genv::gout<<genv::move_to(x-3, y-3)<<genv::color(255,0,0)<<genv::box(sx+2*3, sy+2*3);
-        genv::gout << genv::font("LiberationSans-Regular.ttf",15);
+        genv::gout << genv::font("LiberationSans-Bold.ttf",15);
         genv::gout<<genv::move_to(x+(sx/2-genv::gout.twidth("HOLD")/2), y-30)<<genv::color(255,100,100)<<genv::text("HOLD");
     }
     if(!fokusz)
