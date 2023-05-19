@@ -34,7 +34,7 @@ void Game::gameeventloop()
 {
     graf->jatekrajz(ev, osztokor);
     genv::gout<<genv::refresh;
-    while(genv::gin>>ev && ev.keycode != genv::key_escape)
+    while(genv::gin>>ev && ev.button != genv::key_escape)
     {
         if(alive)
         {
@@ -57,7 +57,12 @@ void Game::gameeventloop()
                 if(stoi((logic->zsetongetter())[0])<=0)
                 {
                     alive=false;
+                    logic->zsetonalap();
+                    std::cout<<"dead"<<std::endl;
+                    graf->startkepernyo();
+                    graf->meghaltalfelirat();
                 }
+                graf->allin();
             }
         }
         graf->jatekrajz(ev, osztokor);

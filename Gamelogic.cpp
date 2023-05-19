@@ -257,7 +257,10 @@ int Gamelogic::darabmeghat(int keresett_szam)
     return szamlalo;
 }
 
-
+void Gamelogic::zsetonalap()
+{
+    zsetonok = 10;
+}
 
 bool Gamelogic::parboolgetter()
 {

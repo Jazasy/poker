@@ -33,6 +33,7 @@ public:
     int numgetter();
     void nummaxsetter(int szam);
     void allithatsetter(bool ih);
+    void numsetter(int szam);
 
 };
 

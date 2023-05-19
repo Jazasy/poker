@@ -59,6 +59,22 @@ void Grafika::jatekrajz(genv::event ev, bool ih)
     }
 }
 
+void Grafika::startkepernyo()
+{
+    hatter();
+}
+
+void Grafika::meghaltalfelirat()
+{
+
+}
+
+void Grafika::allin()
+{
+    if(stoi((logiccop->zsetongetter())[0])<tet->numgetter())
+        tet->numsetter(stoi((logiccop->zsetongetter())[0]));
+}
+
 void Grafika::nyeremenyek()
 {
     nyeremenytablazatszam->szovegsetter({std::to_string(tet->numgetter()*20), std::to_string(tet->numgetter()*10), std::to_string(tet->numgetter()*7), std::to_string(tet->numgetter()*6), std::to_string(tet->numgetter()*5), std::to_string(tet->numgetter()*4), std::to_string(tet->numgetter()*3), std::to_string(tet->numgetter()*2), std::to_string(tet->numgetter()), std::to_string(tet->numgetter()/2)});

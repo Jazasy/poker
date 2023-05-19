@@ -159,4 +159,9 @@ void Numdisp::nummaxsetter(int szam)
     nummax = szam;
 }
 
+void Numdisp::numsetter(int szam)
+{
+    num = szam;
+}
+
 

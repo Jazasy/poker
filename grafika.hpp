@@ -41,6 +41,9 @@ public:
     void nyeremenyfelirat();
     void nyeremenyek();
     bool mutatogombboolsettersetter(bool ih);
+    void allin();
+    void startkepernyo();
+    void meghaltalfelirat();
 };
 
 #endif // GRAFIKA_HPP_INCLUDED

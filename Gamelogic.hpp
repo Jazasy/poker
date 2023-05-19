@@ -42,6 +42,7 @@ public:
     bool semmigetter();
     bool magas_lapgetter();
     void magasell();
+    void zsetonalap();
 };
 
 #endif // GAMELOGIC_HPP_INCLUDED
