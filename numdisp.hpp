@@ -13,6 +13,7 @@ private:
     int nyilsy;
     int nyilkoordx;
     int nyilkoordy;
+    bool allithat;
 public:
     Numdisp(int _x, int _y, int _sx, int _sy, int _nummax);
     void kirajzol(genv::event ev);
@@ -30,6 +31,8 @@ public:
     void valtozasf();
     void felirat();
     int numgetter();
+    void nummaxsetter(int szam);
+    void allithatsetter(bool ih);
 
 };
 

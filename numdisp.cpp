@@ -6,28 +6,35 @@ using namespace genv;
 Numdisp::Numdisp(int _x, int _y, int _sx, int _sy, int _nummax) : Widget(_x, _y, _sx, _sy)
 {
     elozonum = 0;
-    num = 1;
+    num = 2;
     nyilsx = 30;
     nyilsy = sy/2-8;
     nyilkoordx = x+sx-6;
     nyilkoordy = y+sy/2;
     nummax = _nummax;
     betumeret = sy-2;
+    allithat = true;
 };
 
 void Numdisp::kirajzol(event ev)
 {
-    posxy(ev);
-    keret();
-    fokuszf(ev);
-    fokuszkeret();
-    alap();
-    numchange(ev);
-    valtozasf();
-    szamkiir();
-    nyilfel(ev);
-    nyille(ev);
-    felirat();
+        posxy(ev);
+        keret();
+        fokuszf(ev);
+        fokuszkeret();
+        alap();
+        if(allithat)
+            numchange(ev);
+        valtozasf();
+        szamkiir();
+        nyilfel(ev);
+        nyille(ev);
+        felirat();
+}
+
+void Numdisp::allithatsetter(bool ih)
+{
+    allithat = ih;
 }
 
 void Numdisp::felirat()
@@ -134,17 +141,22 @@ void Numdisp::numchange(event ev)
     {
         if(my<nyilkoordy-3 && my>nyilkoordy-nyilsy-3 && ev.button==btn_left && num<nummax)
             num++;
-        if(my>nyilkoordy+3 && my<nyilkoordy+nyilsy+3 && ev.button==btn_left && num>1)
+        if(my>nyilkoordy+3 && my<nyilkoordy+nyilsy+3 && ev.button==btn_left && num>2)
             num--;
     }
     if(ev.keycode==key_up && num<nummax && fokusz)
         num++;
-    if(ev.keycode==key_down && num>1 && fokusz)
+    if(ev.keycode==key_down && num>2 && fokusz)
         num--;
     if(ev.keycode==key_pgup && num+10<=nummax && fokusz)
         num+=10;
-    if(ev.keycode==key_pgdn && num-10>=1 && fokusz)
+    if(ev.keycode==key_pgdn && num-10>=2 && fokusz)
         num-=10;
+}
+
+void Numdisp::nummaxsetter(int szam)
+{
+    nummax = szam;
 }
 
 

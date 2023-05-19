@@ -40,6 +40,8 @@ public:
     bool royal_flushgetter();
     void semmiell();
     bool semmigetter();
+    bool magas_lapgetter();
+    void magasell();
 };
 
 #endif // GAMELOGIC_HPP_INCLUDED

@@ -12,15 +12,14 @@ Gomb::Gomb(int _x, int _y, int _sx, int _sy, std::string _szoveg) : Widget(_x, _
 
 void Gomb::kirajzol(event ev)
 {
-    posxy(ev);
-    keret();
-    megnyom(ev);
-    megnyomva();
-    alap();
-    gombszoveg();
-    meghivasszamlalo+=1;
-    visszaadbool();
-
+        posxy(ev);
+        keret();
+        megnyom(ev);
+        megnyomva();
+        alap();
+        gombszoveg();
+        meghivasszamlalo+=1;
+        visszaadbool();
 }
 
 void Gomb::alap()

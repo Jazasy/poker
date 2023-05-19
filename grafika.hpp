@@ -29,7 +29,7 @@ class Grafika
 public:
     Grafika(int _XX, int _YY, Gamelogic* _logic);
     ~Grafika();
-    void jatekrajz(genv::event ev);
+    void jatekrajz(genv::event ev, bool ih);
     void hatter();
     void zsetonszoveg();
     bool grafikagetkiosztogombbool();

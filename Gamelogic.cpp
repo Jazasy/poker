@@ -66,6 +66,8 @@ void Gamelogic::zsetonallit(int nyereseg_veszteseg)
 
 void Gamelogic::nyeremeny(int nyereseg_veszteseg)
 {
+    if(magas_lap)
+        zsetonok+=static_cast<int>(nyereseg_veszteseg/2);
     if(par)
         zsetonok+=static_cast<int>(nyereseg_veszteseg*1);
     if(ket_par)
@@ -187,10 +189,24 @@ bool Gamelogic::magassorell()
 
 void Gamelogic::semmiell()
 {
-    if(!par && !ket_par && !drill && !sor && !flush && !full && !poker && !szinsor && !royal_flush)
+    if(!magas_lap && !par && !ket_par && !drill && !sor && !flush && !full && !poker && !szinsor && !royal_flush)
         semmi = true;
     else
         semmi = false;
+}
+
+void Gamelogic::magasell()
+{
+    if(!par && !ket_par && !drill && !sor && !flush && !full && !poker && !szinsor && !royal_flush)
+    {
+        for(std::vector<int> v : lapok)
+        {
+            if(v[1]>=11)
+            {
+                magas_lap = true;
+            }
+        }
+    }
 }
 
 void Gamelogic::ellenoriz()
@@ -208,6 +224,7 @@ void Gamelogic::ellenoriz()
         szinsor=true;
     if(magassorell() && flushell())
         royal_flush=true;
+    magasell();
     semmiell();
 }
 
@@ -290,4 +307,9 @@ bool Gamelogic::royal_flushgetter()
 bool Gamelogic::semmigetter()
 {
     return semmi;
+}
+
+bool Gamelogic::magas_lapgetter()
+{
+    return magas_lap;
 }

@@ -9,6 +9,7 @@ Game::Game(int _XX, int _YY ) : XX(_XX), YY(_YY)
     logic = new Gamelogic();
     graf = new Grafika(XX,YY,logic);
     osztokor = true;
+    alive = true;
 };
 
 Game::~Game()
@@ -31,30 +32,35 @@ void Game::ablak()
 
 void Game::gameeventloop()
 {
-    graf->jatekrajz(ev);
+    graf->jatekrajz(ev, osztokor);
     genv::gout<<genv::refresh;
     while(genv::gin>>ev && ev.keycode != genv::key_escape)
     {
-        //graf->jatekrajz(ev);
-        graf->mutatogombboolsettersetter(!osztokor);
-        if(graf->grafikagetkiosztogombbool() && osztokor)
+        if(alive)
         {
-            logic->kezboolkivesz();
-            logic->leoszt();
-            graf->grafikakartyaidsetter();
-            logic->zsetonallit(graf->numgettergetter());
-            osztokor = false;
+            graf->mutatogombboolsettersetter(!osztokor);
+            if(graf->grafikagetkiosztogombbool() && osztokor)
+            {
+                logic->kezboolkivesz();
+                logic->leoszt();
+                graf->grafikakartyaidsetter();
+                logic->zsetonallit(graf->numgettergetter());
+                osztokor = false;
+            }
+            if(graf->grafikagetmutatogombbool() && !osztokor)
+            {
+                graf->grafcsere();
+                graf->grafikakartyaidsetter();
+                logic->ellenoriz();
+                logic->nyeremeny(graf->numgettergetter());
+                osztokor = true;
+                if(stoi((logic->zsetongetter())[0])<=0)
+                {
+                    alive=false;
+                }
+            }
         }
-        if(graf->grafikagetmutatogombbool() && !osztokor)
-        {
-            graf->grafcsere();
-            graf->grafikakartyaidsetter();
-            logic->ellenoriz();
-            logic->nyeremeny(graf->numgettergetter());
-            osztokor = true;
-
-        }
-        graf->jatekrajz(ev);
+        graf->jatekrajz(ev, osztokor);
         genv::gout<<genv::refresh;
     }
 }

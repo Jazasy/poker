@@ -7,7 +7,6 @@
 
 Grafika::Grafika(int _XX, int _YY, Gamelogic* _logic) : XX(_XX), YY(_YY), logiccop(_logic)
 {
-    tet = new Numdisp(10, YY-10-50, XX/2-10-110/2-10, 50, 100);
     kiosztogomb = new Gomb(XX/2-10-110/2+10+10-10, YY-10-50, 110, 50, "DEAL");
     mutatogomb = new Gomb(XX/2-10-110/2+10+10-10, YY-10-50-10-50, 110, 50, "SHOW");
     kartya = new Kartya(10+72*0+10*0, 2.5*YY/4, 0, 0);
@@ -16,8 +15,10 @@ Grafika::Grafika(int _XX, int _YY, Gamelogic* _logic) : XX(_XX), YY(_YY), logicc
     kartya3 = new Kartya(10+72*3+10*3, 2.5*YY/4, 0, 0);
     kartya4 = new Kartya(10+72*4+10*4, 2.5*YY/4, 0, 0);
     nyeremenytablazatszoveg = new Menu(10, 10, XX/2-10, YY/2.5, {"Royal Flush", "Straight Flush", "Four of a Kind", "Full", "Flush", "Straight", "Drill", "Two Pair", "Pair", "High"});
-    nyeremenytablazatszam = new Menu(XX/2, 10, XX/2-10, YY/2.5, {std::to_string(tet->numgetter()*20), std::to_string(tet->numgetter()*10), std::to_string(tet->numgetter()*7), std::to_string(tet->numgetter()*6), std::to_string(tet->numgetter()*5), std::to_string(tet->numgetter()*4), std::to_string(tet->numgetter()*3), std::to_string(tet->numgetter()*2), std::to_string(tet->numgetter()*20), "+1"});
+    //nyeremenytablazatszam = new Menu(XX/2, 10, XX/2-10, YY/2.5, {std::to_string(tet->numgetter()*20), std::to_string(tet->numgetter()*10), std::to_string(tet->numgetter()*7), std::to_string(tet->numgetter()*6), std::to_string(tet->numgetter()*5), std::to_string(tet->numgetter()*4), std::to_string(tet->numgetter()*3), std::to_string(tet->numgetter()*2), std::to_string(tet->numgetter()*20), std::to_string(tet->numgetter()/2)});
+    nyeremenytablazatszam = new Menu(XX/2, 10, XX/2-10, YY/2.5, {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"});
     zsetonok = new Menu(XX/2-10-110/2+10+10-10+110+10, YY-60, XX/2-10-110/2-10, 50, logiccop->zsetongetter());
+    tet = new Numdisp(10, YY-10-50, XX/2-10-110/2-10, 50, stoi((logiccop->zsetongetter())[0]));
     widgetek.push_back(tet);
     widgetek.push_back(kiosztogomb);
     widgetek.push_back(mutatogomb);
@@ -44,11 +45,13 @@ Grafika::~Grafika()
     delete zsetonok;
 }
 
-void Grafika::jatekrajz(genv::event ev)
+void Grafika::jatekrajz(genv::event ev, bool ih)
 {
     hatter();
     nyeremenyfelirat();
     nyeremenyek();
+    tet->nummaxsetter(stoi((logiccop->zsetongetter())[0]));
+    tet->allithatsetter(ih);
     zsetonszoveg();
     for(Widget* w : widgetek)
     {
@@ -58,7 +61,7 @@ void Grafika::jatekrajz(genv::event ev)
 
 void Grafika::nyeremenyek()
 {
-    nyeremenytablazatszam->szovegsetter({std::to_string(tet->numgetter()*20), std::to_string(tet->numgetter()*10), std::to_string(tet->numgetter()*7), std::to_string(tet->numgetter()*6), std::to_string(tet->numgetter()*5), std::to_string(tet->numgetter()*4), std::to_string(tet->numgetter()*3), std::to_string(tet->numgetter()*2), std::to_string(tet->numgetter()), "+1"});
+    nyeremenytablazatszam->szovegsetter({std::to_string(tet->numgetter()*20), std::to_string(tet->numgetter()*10), std::to_string(tet->numgetter()*7), std::to_string(tet->numgetter()*6), std::to_string(tet->numgetter()*5), std::to_string(tet->numgetter()*4), std::to_string(tet->numgetter()*3), std::to_string(tet->numgetter()*2), std::to_string(tet->numgetter()), std::to_string(tet->numgetter()/2)});
 }
 
 void Grafika::hatter()
@@ -137,6 +140,10 @@ void Grafika::grafikakartyaidsetter()
 void Grafika::nyeremenyfelirat()
 {
     genv::gout << genv::font("LiberationSans-Regular.ttf",50);
+    if(logiccop->semmigetter())
+        genv::gout<<genv::move_to(XX/2-genv::gout.twidth("SEMMI :'(")/2, 2.5*YY/4-90)<<genv::color(255,255,255)<<genv::text("SEMMI :'(");
+    if(logiccop->magas_lapgetter())
+        genv::gout<<genv::move_to(XX/2-genv::gout.twidth("HIGH")/2, 2.5*YY/4-90)<<genv::color(255,255,255)<<genv::text("HIGH");
     if(logiccop->parboolgetter())
         genv::gout<<genv::move_to(XX/2-genv::gout.twidth("PAIR")/2, 2.5*YY/4-90)<<genv::color(255,255,255)<<genv::text("PAIR");
     if(logiccop->ket_parboolgetter())
@@ -158,7 +165,5 @@ void Grafika::nyeremenyfelirat()
     }
     if(logiccop->royal_flushgetter())
         genv::gout<<genv::move_to(XX/2-genv::gout.twidth("ROYAL FLUSH")/2, 2.5*YY/4-90)<<genv::color(255,223,0)<<genv::text("ROYAL FLUSH");
-    if(logiccop->semmigetter())
-        genv::gout<<genv::move_to(XX/2-genv::gout.twidth("SEMMI :'(")/2, 2.5*YY/4-90)<<genv::color(255,255,255)<<genv::text("SEMMI :'(");
 }
 

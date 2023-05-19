@@ -12,6 +12,7 @@ class Game
     int XX;
     int YY;
     bool osztokor;
+    bool alive;
 public:
     Game(int _XX, int _YY);
     ~Game();
