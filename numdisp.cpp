@@ -61,17 +61,17 @@ void Numdisp::szamkiir()
 {
     gout<<font("LiberationSans-Regular.ttf",betumeret);
     gout<<move_to(x+5,y+sy/2-(gout.cascent()+gout.cdescent())/2);
-    gout<<color(0,0,0)<<text(std::to_string(num));
+    gout<<color(255,255,255)<<text(std::to_string(num));
 }
 
 void Numdisp::alap()
 {
-    gout<<move_to(x,y)<<color(0,255,255)<<box(sx,sy);
+    gout<<move_to(x,y)<<color(5,101,8)<<box(sx,sy);
 }
 
 void Numdisp::keret()
 {
-    gout<<move_to(x-2, y-2)<<color(255,255,100)<<box(sx+2*2, sy+2*2);
+    gout<<move_to(x-2, y-2)<<color(255,255,255)<<box(sx+2*2, sy+2*2);
 }
 
 void Numdisp::nyilfel(event ev)
@@ -79,7 +79,7 @@ void Numdisp::nyilfel(event ev)
     if(kattintfel(ev))
         gout<<move_to(nyilkoordx+3, nyilkoordy)<<color(255,0,0)<<box(-nyilsx-6, -nyilsy-6);
     gout<<move_to(nyilkoordx, nyilkoordy-3);
-    gout<<color(255,255,0)<<box(-nyilsx,-nyilsy);
+    gout<<color(125,255,85)<<box(-nyilsx,-nyilsy);
     haromszogfel();
     if(!kattintfel(ev))
         gout<<color(0,0,0)<<move_to(nyilkoordx, nyilkoordy-3)<<line(0,-nyilsy)<<line(-nyilsx,0)<<line(0,nyilsy)<<line(nyilsx,0);
@@ -91,7 +91,7 @@ void Numdisp::nyille(event ev)
     if(kattintle(ev))
         gout<<move_to(nyilkoordx+3, nyilkoordy)<<color(255,0,0)<<box(-nyilsx-6, nyilsy+6);
     gout<<move_to(nyilkoordx, nyilkoordy+3);
-    gout<<color(255,255,0)<<box(-nyilsx,nyilsy);
+    gout<<color(126,200,80)<<box(-nyilsx,nyilsy);
     haromszogle();
     if(!kattintle(ev))
         gout<<color(0,0,0)<<move_to(nyilkoordx, nyilkoordy+3)<<line(0,nyilsy)<<line(-nyilsx,0)<<line(0,-nyilsy)<<line(nyilsx,0);

@@ -25,18 +25,18 @@ void Gomb::kirajzol(event ev)
 
 void Gomb::alap()
 {
-    gout<<move_to(x,y)<<color(255,255,170)<<box(sx,sy);
+    gout<<move_to(x,y)<<color(125,255,85)<<box(sx,sy);
 }
 
 void Gomb::gombszoveg()
 {
     gout << font("LiberationSans-Regular.ttf",betumeret);
-    gout<<move_to(x,y)<<color(0,150,255)<<text(szoveg);
+    gout<<move_to(x,y)<<color(0,0,0)<<text(szoveg);
 }
 
 void Gomb::keret()
 {
-    gout<<move_to(x-2, y-2)<<color(0,150,255)<<box(sx+2*2, sy+2*2);
+    gout<<move_to(x-2, y-2)<<color(0,0,0)<<box(sx+2*2, sy+2*2);
 }
 
 void Gomb::megnyom(event ev)

@@ -21,6 +21,11 @@ void Kartya::kirajzol(genv::event ev)
         kartyarajz();
 }
 
+void Kartya::mutatogomboolsetter(bool ih)
+{
+    _mutatogombool = ih;
+}
+
 std::vector<std::vector<int>> Kartya::beolvasas(std::string nev)
 {
     std::vector<std::vector<int>> _pixelek;
@@ -92,7 +97,7 @@ void Kartya::kartyafokuszboolsetter()
 
 void Kartya::kivalaszt(genv::event ev)
 {
-    if(mx>x && mx<x+sx && my>y && my<y+sy && ev.button == genv::btn_left)
+    if(mx>x && mx<x+sx && my>y && my<y+sy && ev.button == genv::btn_left && _mutatogombool)
         fokusz=!fokusz;
 }
 

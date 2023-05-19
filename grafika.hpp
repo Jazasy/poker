@@ -40,6 +40,7 @@ public:
     void kartyafokuszkivesz();
     void nyeremenyfelirat();
     void nyeremenyek();
+    bool mutatogombboolsettersetter(bool ih);
 };
 
 #endif // GRAFIKA_HPP_INCLUDED

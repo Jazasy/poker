@@ -102,14 +102,17 @@ void Grafika::kartyafokuszkivesz()
 
 int Grafika::numgettergetter()
 {
-    for(int i=0; i<logiccop->lapokgetter().size(); i++)
-    {
-        std::cout<<logiccop->lapokgetter()[i][0]<<", "<<logiccop->lapokgetter()[i][1]<<std::endl;
-    }
-    std::cout<<std::endl;
-
     int szam = tet->numgetter();
     return szam;
+}
+
+bool Grafika::mutatogombboolsettersetter(bool ih)
+{
+    kartya->mutatogomboolsetter(ih);
+    kartya1->mutatogomboolsetter(ih);
+    kartya2->mutatogomboolsetter(ih);
+    kartya3->mutatogomboolsetter(ih);
+    kartya4->mutatogomboolsetter(ih);
 }
 
 bool Grafika::grafikagetmutatogombbool()
@@ -153,5 +156,7 @@ void Grafika::nyeremenyfelirat()
         genv::gout<<genv::move_to(0, 2.5*YY/4-90)<<genv::color(0,255,255)<<genv::text("STRAIGHTFLUSH");
     if(logiccop->royal_flushgetter())
         genv::gout<<genv::move_to(XX/2-genv::gout.twidth("ROYAL FLUSH")/2, 2.5*YY/4-90)<<genv::color(255,223,0)<<genv::text("ROYAL FLUSH");
+    if(logiccop->semmigetter())
+        genv::gout<<genv::move_to(XX/2-genv::gout.twidth("SEMMI :'(")/2, 2.5*YY/4-90)<<genv::color(255,255,255)<<genv::text("SEMMI :'(");
 }
 

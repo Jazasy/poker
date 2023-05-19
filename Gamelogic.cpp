@@ -105,7 +105,7 @@ void Gamelogic::kartyaidcsere(std::vector<bool> _megtartindex)
 
 void Gamelogic::kezboolkivesz()
 {
-    magas_lap=false, par=false, ket_par=false, drill=false, sor=false, flush=false, full=false, poker=false, szinsor=false, royal_flush = false;
+    magas_lap=false, par=false, ket_par=false, drill=false, sor=false, flush=false, full=false, poker=false, szinsor=false, royal_flush = false, semmi = false;
 }
 
 int Gamelogic::parszamlalo(std::vector<std::vector<int>> kartyaszamok)
@@ -185,6 +185,14 @@ bool Gamelogic::magassorell()
     return false;
 }
 
+void Gamelogic::semmiell()
+{
+    if(!par && !ket_par && !drill && !sor && !flush && !full && !poker && !szinsor && !royal_flush)
+        semmi = true;
+    else
+        semmi = false;
+}
+
 void Gamelogic::ellenoriz()
 {
     std::vector<std::vector<int>> kartyaszamok = mindenlapdarabmehat();
@@ -200,6 +208,7 @@ void Gamelogic::ellenoriz()
         szinsor=true;
     if(magassorell() && flushell())
         royal_flush=true;
+    semmiell();
 }
 
 std::vector<std::vector<int>> Gamelogic::mindenlapdarabmehat()
@@ -276,4 +285,9 @@ bool Gamelogic::szinsorgetter()
 bool Gamelogic::royal_flushgetter()
 {
     return royal_flush;
+}
+
+bool Gamelogic::semmigetter()
+{
+    return semmi;
 }

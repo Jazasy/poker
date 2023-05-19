@@ -11,6 +11,7 @@ class Kartya : public Widget
     int s;
     int id;
     std::vector<int> _kartyaid;
+    bool _mutatogombool;
 public:
     Kartya(int _x, int _y, int _sx, int _sy);
     std::vector<std::vector<int>> beolvasas(std::string nev);
@@ -24,6 +25,7 @@ public:
     void kartyafokuszboolsetter();
     void osszeskartyabeolvastombe();
     void kartyarajztreffkiralyra();
+    void mutatogomboolsetter(bool ih);
 };
 
 #endif // KARTYA_HPP_INCLUDED

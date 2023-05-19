@@ -36,12 +36,12 @@ void Game::gameeventloop()
     while(genv::gin>>ev && ev.keycode != genv::key_escape)
     {
         //graf->jatekrajz(ev);
+        graf->mutatogombboolsettersetter(!osztokor);
         if(graf->grafikagetkiosztogombbool() && osztokor)
         {
             logic->kezboolkivesz();
             logic->leoszt();
             graf->grafikakartyaidsetter();
-            //graf->grafikakartyaidsetter({{1,2},{1,2},{1,2},{1,2},{1,2}});
             logic->zsetonallit(graf->numgettergetter());
             osztokor = false;
         }
@@ -49,7 +49,6 @@ void Game::gameeventloop()
         {
             graf->grafcsere();
             graf->grafikakartyaidsetter();
-            //graf->grafikakartyaidsetter({{1,2},{1,2},{1,2},{1,2},{1,2}});
             logic->ellenoriz();
             logic->nyeremeny(graf->numgettergetter());
             osztokor = true;

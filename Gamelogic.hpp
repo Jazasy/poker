@@ -7,7 +7,7 @@ class Gamelogic
 {
     std::vector<std::vector<int>> lapok;
     int zsetonok;
-    bool magas_lap, par, ket_par, drill, sor, flush, full, poker, szinsor, royal_flush;
+    bool magas_lap, par, ket_par, drill, sor, flush, full, poker, szinsor, royal_flush, semmi;
 public:
     Gamelogic();
     void leoszt();
@@ -38,6 +38,8 @@ public:
     bool pokergetter();
     bool szinsorgetter();
     bool royal_flushgetter();
+    void semmiell();
+    bool semmigetter();
 };
 
 #endif // GAMELOGIC_HPP_INCLUDED
