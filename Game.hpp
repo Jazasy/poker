@@ -13,12 +13,14 @@ class Game
     int YY;
     bool osztokor;
     bool alive;
+    bool esc;
 public:
     Game(int _XX, int _YY);
     ~Game();
     void master();
     void ablak();
     void gameeventloop();
+    void halott();
 };
 
 #endif // GAME_HPP_INCLUDED

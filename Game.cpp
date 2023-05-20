@@ -10,6 +10,7 @@ Game::Game(int _XX, int _YY ) : XX(_XX), YY(_YY)
     graf = new Grafika(XX,YY,logic);
     osztokor = true;
     alive = false;
+    esc = true;
 };
 
 Game::~Game()
@@ -30,16 +31,42 @@ void Game::ablak()
     genv::gout<<genv::refresh;
 }
 
+void Game::halott()
+{
+    logic->zsetonalap();
+    graf->startkepernyo(ev);
+    if(!esc)
+    {
+        graf->meghaltalfelirat();
+    }
+    logic->kartyaidsetter({{-1,-1},{-1,-1},{-1,-1},{-1,-1},{-1,-1}});
+    graf->grafikakartyaidsetter();
+    logic->ellenoriz();
+    if(graf->grafikagetstartgombool())
+    {
+        alive=true;
+        esc=false;
+    }
+}
+
 void Game::gameeventloop()
 {
     graf->startkepernyo(ev);
     genv::gout<<genv::refresh;
-    while(genv::gin>>ev && ev.button != genv::key_escape)
+    while(genv::gin>>ev && (ev.keycode != genv::key_escape || alive))
     {
-        if(alive)
+        if(!alive)
         {
-            if(ev.button == genv::key_escape)
+            halott();
+        }
+        else
+        {
+            if(ev.keycode==genv::key_escape)
+            {
                 alive=false;
+                esc=true;
+                halott();
+            }
             graf->mutatogombboolsettersetter(!osztokor);
             if(graf->grafikagetkiosztogombbool() && osztokor)
             {
@@ -59,21 +86,15 @@ void Game::gameeventloop()
                 if(stoi((logic->zsetongetter())[0])<=0)
                 {
                     alive=false;
+                    esc=false;
+                    halott();
 
                 }
                 graf->allin();
             }
             if(alive)
                 graf->jatekrajz(ev, osztokor);
-        }
-        else
-        {
-            logic->zsetonalap();
-            logic->kartyaidsetter({{-1,-1},{-1,-1},{-1,-1},{-1,-1},{-1,-1}});
-            graf->startkepernyo(ev);
-            graf->meghaltalfelirat();
-            if(graf->grafikagetstartgombool())
-                alive=true;
+
         }
         genv::gout<<genv::refresh;
     }

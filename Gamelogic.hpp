@@ -44,6 +44,7 @@ public:
     void magasell();
     void zsetonalap();
     void kartyaidsetter(std::vector<std::vector<int>> alap);
+    std::string legmagasabb();
 };
 
 #endif // GAMELOGIC_HPP_INCLUDED

@@ -484,7 +484,7 @@
 	"grafika.hpp"
 	<iostream>
 
-1684518340 source:e:\programozás\github\poker\game.cpp
+1684585691 source:e:\programozás\github\poker\game.cpp
 	"graphics.hpp"
 	"Game.hpp"
 	"Gamelogic.hpp"
@@ -495,16 +495,16 @@
 	<string>
 	<vector>
 
-1684500599 e:\programozás\github\poker\game.hpp
+1684583241 e:\programozás\github\poker\game.hpp
 	"graphics.hpp"
 	"Gamelogic.hpp"
 	"grafika.hpp"
 
-1684518329 e:\programozás\github\poker\gamelogic.hpp
+1684577563 e:\programozás\github\poker\gamelogic.hpp
 	<vector>
 	<string>
 
-1684517449 e:\programozás\github\poker\grafika.hpp
+1684583241 e:\programozás\github\poker\grafika.hpp
 	"graphics.hpp"
 	"Gamelogic.hpp"
 	"numdisp.hpp"
@@ -533,7 +533,7 @@
 	"widget.hpp"
 	"graphics.hpp"
 
-1684533018 source:e:\programozás\github\poker\gamelogic.cpp
+1684581728 source:e:\programozás\github\poker\gamelogic.cpp
 	"Gamelogic.hpp"
 	<vector>
 	<time.h>
@@ -546,7 +546,7 @@
 	"graphics.hpp"
 	<string>
 
-1684572510 source:e:\programozás\github\poker\grafika.cpp
+1684586058 source:e:\programozás\github\poker\grafika.cpp
 	"grafika.hpp"
 	"graphics.hpp"
 	<vector>
@@ -947,7 +947,7 @@
 
 1677893378 e:\programozás\github\poker\graphicslib\keytbl.h
 
-1684496310 source:e:\programozás\github\poker\kartya.cpp
+1684581748 source:e:\programozás\github\poker\kartya.cpp
 	"kartya.hpp"
 	"graphics.hpp"
 	<fstream>

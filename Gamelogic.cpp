@@ -8,7 +8,7 @@
 
 Gamelogic::Gamelogic()
 {
-    zsetonok=100;
+    zsetonok=10;
 }
 
 void Gamelogic::leoszt()
@@ -136,6 +136,27 @@ void Gamelogic::drill_full_ell(std::vector<std::vector<int>> kartyaszamok)
     }
 }
 
+std::string Gamelogic::legmagasabb()
+{
+    std::string lap;
+    int legnagyobb = 0;
+    for(std::vector<int> v : lapok)
+    {
+        if(v[1]>legnagyobb)
+            legnagyobb = v[1];
+    }
+    if(legnagyobb==9)
+        lap = "JACK HIGH";
+    if(legnagyobb==10)
+        lap = "QUEEN HIGH";
+    if(legnagyobb==11)
+        lap = "KING HIGH";
+    if(legnagyobb==12)
+        lap = "ACE HIGH";
+
+    return lap;
+}
+
 bool Gamelogic::flushell()
 {
     for(std::vector<int> v : lapok)
@@ -201,7 +222,7 @@ void Gamelogic::magasell()
     {
         for(std::vector<int> v : lapok)
         {
-            if(v[1]>=11)
+            if(v[1]>=9)
             {
                 magas_lap = true;
             }
@@ -264,7 +285,7 @@ void Gamelogic::kartyaidsetter(std::vector<std::vector<int>> alap)
 
 void Gamelogic::zsetonalap()
 {
-    zsetonok = 100;
+    zsetonok = 10;
 }
 
 bool Gamelogic::parboolgetter()

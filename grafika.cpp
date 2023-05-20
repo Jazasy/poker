@@ -69,7 +69,9 @@ void Grafika::startkepernyo(genv::event ev)
 
 void Grafika::meghaltalfelirat()
 {
-
+    genv::gout << genv::font("LiberationSans-Regular.ttf",60);
+    genv::gout<<genv::move_to(0+(XX/2-genv::gout.twidth("GAME")/2), YY/4-60)<<genv::color(255,255,255)<<genv::text("GAME");
+    genv::gout<<genv::move_to(0+(XX/2-genv::gout.twidth("OVER!")/2), 0+3*YY/4)<<genv::color(255,255,255)<<genv::text("OVER!");
 }
 
 void Grafika::allin()
@@ -167,7 +169,10 @@ void Grafika::nyeremenyfelirat()
     if(logiccop->semmigetter())
         genv::gout<<genv::move_to(XX/2-genv::gout.twidth("NOTHING :'(")/2, 2.5*YY/4-90)<<genv::color(255,255,255)<<genv::text("NOTHING :'(");
     if(logiccop->magas_lapgetter())
-        genv::gout<<genv::move_to(XX/2-genv::gout.twidth("HIGH")/2, 2.5*YY/4-90)<<genv::color(255,255,255)<<genv::text("HIGH");
+    {
+        std::string magasszoveg = logiccop->legmagasabb();
+        genv::gout<<genv::move_to(XX/2-genv::gout.twidth(magasszoveg)/2, 2.5*YY/4-90)<<genv::color(255,255,255)<<genv::text(magasszoveg);
+    }
     if(logiccop->parboolgetter())
         genv::gout<<genv::move_to(XX/2-genv::gout.twidth("PAIR")/2, 2.5*YY/4-90)<<genv::color(255,255,255)<<genv::text("PAIR");
     if(logiccop->ket_parboolgetter())
@@ -197,5 +202,7 @@ void Grafika::nyeremenyfelirat()
         std::cout<<"royal flush"<<std::endl;
         logiccop->consolrair();
     }
+    if((logiccop->lapokgetter())[0][0]==-1)
+        genv::gout<<genv::move_to(0, 2.5*YY/4-90-25)<<genv::color(5,102,8)<<genv::box(XX,100);
 }
 
