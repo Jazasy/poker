@@ -28,7 +28,6 @@ void Game::master()
 void Game::ablak()
 {
     genv::gout.open(XX,YY);
-    genv::gout<<genv::refresh;
 }
 
 void Game::halott()
@@ -51,7 +50,7 @@ void Game::halott()
 
 void Game::gameeventloop()
 {
-    graf->startkepernyo(ev);
+    halott();
     genv::gout<<genv::refresh;
     while(genv::gin>>ev && (ev.keycode != genv::key_escape || alive))
     {
@@ -92,8 +91,7 @@ void Game::gameeventloop()
                 }
                 graf->allin();
             }
-            if(alive)
-                graf->jatekrajz(ev, osztokor);
+            graf->jatekrajz(ev, osztokor);
 
         }
         genv::gout<<genv::refresh;

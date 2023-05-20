@@ -484,7 +484,7 @@
 	"grafika.hpp"
 	<iostream>
 
-1684585691 source:e:\programozás\github\poker\game.cpp
+1684599876 source:e:\programozás\github\poker\game.cpp
 	"graphics.hpp"
 	"Game.hpp"
 	"Gamelogic.hpp"
@@ -546,7 +546,7 @@
 	"graphics.hpp"
 	<string>
 
-1684586058 source:e:\programozás\github\poker\grafika.cpp
+1684599895 source:e:\programozás\github\poker\grafika.cpp
 	"grafika.hpp"
 	"graphics.hpp"
 	<vector>
