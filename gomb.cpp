@@ -41,7 +41,7 @@ void Gomb::keret()
 void Gomb::megnyom(event ev)
 {
     fokusz=false;
-    if(mx>x && mx<x+sx && my>y && my<y+sy && ev.button == genv::btn_left)
+    if(mx>x && mx<x+sx && my>y && my<y+sy && ev.button == genv::btn_left || ev.keycode == genv::key_lctrl)
         fokusz = true;
 }
 

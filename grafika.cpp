@@ -181,13 +181,22 @@ void Grafika::nyeremenyfelirat()
     if(logiccop->fullgetter())
         genv::gout<<genv::move_to(XX/2-genv::gout.twidth("FULL *_*")/2, 2.5*YY/4-90)<<genv::color(255,255,255)<<genv::text("FULL *_*");
     if(logiccop->pokergetter())
-        genv::gout<<genv::move_to(XX/2-genv::gout.twidth("FOUR OF A KIND ^o^")/2, 2.5*YY/4-90)<<genv::color(255,255,255)<<genv::text("FOUR OF A KIND ^o^");
+    {
+
+        genv::gout<<genv::move_to(XX/2-genv::gout.twidth("FOUR OF")/2, 2.5*YY/4-90-25)<<genv::color(255,255,255)<<genv::text("FOUR OF");
+        genv::gout<<genv::move_to(XX/2-genv::gout.twidth("A KIND ^o^")/2, 2.5*YY/4-90+25)<<genv::color(255,255,255)<<genv::text("A KIND ^o^");
+        std::cout<<"poker"<<std::endl;
+    }
     if(logiccop->szinsorgetter())
     {
         genv::gout<<genv::move_to(XX/2-genv::gout.twidth("STRAIGHT")/2, 2.5*YY/4-90-25)<<genv::color(0,255,255)<<genv::text("STRAIGHT");
         genv::gout<<genv::move_to(XX/2-genv::gout.twidth("FLUSH")/2, 2.5*YY/4-90+25)<<genv::color(0,255,255)<<genv::text("FLUSH");
+        std::cout<<"szinsor"<<std::endl;
     }
     if(logiccop->royal_flushgetter())
+    {
         genv::gout<<genv::move_to(XX/2-genv::gout.twidth("ROYAL FLUSH")/2, 2.5*YY/4-90)<<genv::color(255,223,0)<<genv::text("ROYAL FLUSH");
+        std::cout<<"royal flush"<<std::endl;
+    }
 }
 

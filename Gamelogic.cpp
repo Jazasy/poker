@@ -8,7 +8,7 @@
 
 Gamelogic::Gamelogic()
 {
-    zsetonok=10;
+    zsetonok=100;
 }
 
 void Gamelogic::leoszt()
@@ -264,7 +264,7 @@ void Gamelogic::kartyaidsetter(std::vector<std::vector<int>> alap)
 
 void Gamelogic::zsetonalap()
 {
-    zsetonok = 10;
+    zsetonok = 100;
 }
 
 bool Gamelogic::parboolgetter()

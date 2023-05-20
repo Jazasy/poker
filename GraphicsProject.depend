@@ -533,7 +533,7 @@
 	"widget.hpp"
 	"graphics.hpp"
 
-1684518329 source:e:\programozás\github\poker\gamelogic.cpp
+1684533018 source:e:\programozás\github\poker\gamelogic.cpp
 	"Gamelogic.hpp"
 	<vector>
 	<time.h>
@@ -541,12 +541,12 @@
 	<algorithm>
 	<iostream>
 
-1684506932 source:e:\programozás\github\poker\gomb.cpp
+1684541034 source:e:\programozás\github\poker\gomb.cpp
 	"gomb.hpp"
 	"graphics.hpp"
 	<string>
 
-1684517753 source:e:\programozás\github\poker\grafika.cpp
+1684537166 source:e:\programozás\github\poker\grafika.cpp
 	"grafika.hpp"
 	"graphics.hpp"
 	<vector>
