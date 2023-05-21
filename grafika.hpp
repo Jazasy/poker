@@ -25,6 +25,7 @@ class Grafika
     Menu* nyeremenytablazatszoveg;
     Menu* nyeremenytablazatszam;
     Menu* zsetonok;
+    Menu* valoszinusegtablazat;
     int XX;
     int YY;
 public:

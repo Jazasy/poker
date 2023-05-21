@@ -12,6 +12,7 @@ class Kartya : public Widget
     int id;
     std::vector<int> _kartyaid;
     bool _mutatogombool;
+    std::vector<std::vector<std::vector<int>>> kartyakep;
 public:
     Kartya(int _x, int _y, int _sx, int _sy);
     std::vector<std::vector<int>> beolvasas(std::string nev);

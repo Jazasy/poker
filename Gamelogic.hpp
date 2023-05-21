@@ -2,6 +2,7 @@
 #define GAMELOGIC_HPP_INCLUDED
 #include <vector>
 #include <string>
+#include <string>
 
 class Gamelogic
 {
@@ -45,6 +46,21 @@ public:
     void zsetonalap();
     void kartyaidsetter(std::vector<std::vector<int>> alap);
     std::string legmagasabb();
+    unsigned long long faktorialis(int n);
+    double kombinacio(int a, int b);
+    double osszeseset();
+    std::string royalflushpr();
+    std::string szinsorpr();
+    std::string pokerpr();
+    std::string flushpr();
+    std::string sorpr();
+    std::string magaspr();
+    std::string parpr();
+    std::string drillpr();
+    std::string fullpr();
+    std::string ketparpr();
+    std::string magaslappr();
+
 };
 
 #endif // GAMELOGIC_HPP_INCLUDED

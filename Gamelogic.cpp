@@ -3,12 +3,15 @@
 #include <time.h>
 #include <string>
 #include <algorithm>
+#include <iomanip>
+#include <string>
+#include <cmath>
 
 #include <iostream>
 
 Gamelogic::Gamelogic()
 {
-    zsetonok=10;
+    zsetonok=100;
 }
 
 void Gamelogic::leoszt()
@@ -342,3 +345,88 @@ bool Gamelogic::magas_lapgetter()
 {
     return magas_lap;
 }
+
+unsigned long long Gamelogic::faktorialis(int n)
+{
+    if(n==0 || n==1)
+    {
+        return 1;
+    }
+    else
+    {
+        return n*faktorialis(n-1);
+    }
+}
+
+double Gamelogic::kombinacio(int a, int b)
+{
+    unsigned long long ezalatt = faktorialis(a);
+    unsigned long long ez = faktorialis(b);
+    return double(ezalatt)/ez;
+}
+
+double Gamelogic::osszeseset()
+{
+    return kombinacio(52,5);
+}
+
+std::string Gamelogic::royalflushpr()
+{
+    double pr = double(4)/osszeseset();
+    return std::to_string(pr);
+}
+
+std::string Gamelogic::szinsorpr()
+{
+    double pr = double(4*8)/osszeseset();
+    return std::to_string(pr);
+}
+
+std::string Gamelogic::pokerpr()
+{
+    double pr = double(13*48)/osszeseset();
+    return std::to_string(pr);
+}
+
+std::string Gamelogic::flushpr()
+{
+    double pr = double(4*kombinacio(13,5))/osszeseset();
+    return std::to_string(pr);
+}
+
+std::string Gamelogic::sorpr()
+{
+    double pr = double(std::pow(4,9)-(32+4))/osszeseset();
+    return std::to_string(pr);
+}
+
+std::string Gamelogic::parpr()
+{
+    double pr = double(kombinacio(4,2)*13*kombinacio(50,3)-4*13*kombinacio(49,3)-kombinacio(4,2)*13*77*48-13*48-kombinacio(4,2)*13*4*13)/osszeseset();
+    return std::to_string(pr);
+}
+
+std::string Gamelogic::drillpr()
+{
+    double pr = double(4*13*kombinacio(49,3)-kombinacio(4,2)*13*4*13-13*48)/osszeseset();
+    return std::to_string(pr);
+}
+
+std::string Gamelogic::fullpr()
+{
+    double pr = double(kombinacio(4,2)*13*4*13-13*48)/osszeseset();
+    return std::to_string(pr);
+}
+
+std::string Gamelogic::ketparpr()
+{
+    double pr = double(kombinacio(4,2)*13*77*48-13*48)/osszeseset();
+    return std::to_string(pr);
+}
+
+std::string Gamelogic::magaslappr()
+{
+    double pr;
+    return std::to_string(pr);
+}
+

@@ -15,9 +15,10 @@ Grafika::Grafika(int _XX, int _YY, Gamelogic* _logic) : XX(_XX), YY(_YY), logicc
     kartya2 = new Kartya(10+72*2+10*2, 2.5*YY/4, 0, 0);
     kartya3 = new Kartya(10+72*3+10*3, 2.5*YY/4, 0, 0);
     kartya4 = new Kartya(10+72*4+10*4, 2.5*YY/4, 0, 0);
-    nyeremenytablazatszoveg = new Menu(10, 10, XX/2-10, YY/2.5, {"Royal Flush", "Straight Flush", "Four of a Kind", "Full", "Flush", "Straight", "Drill", "Two Pair", "Pair", "High"});
+    nyeremenytablazatszoveg = new Menu(10, 10, XX/2-50, YY/2.5, {"Royal Flush", "Straight Flush", "Four of a Kind", "Full", "Flush", "Straight", "Drill", "Two Pair", "Pair", "High"});
     //nyeremenytablazatszam = new Menu(XX/2, 10, XX/2-10, YY/2.5, {std::to_string(tet->numgetter()*20), std::to_string(tet->numgetter()*10), std::to_string(tet->numgetter()*7), std::to_string(tet->numgetter()*6), std::to_string(tet->numgetter()*5), std::to_string(tet->numgetter()*4), std::to_string(tet->numgetter()*3), std::to_string(tet->numgetter()*2), std::to_string(tet->numgetter()*20), std::to_string(tet->numgetter()/2)});
-    nyeremenytablazatszam = new Menu(XX/2, 10, XX/2-10, YY/2.5, {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"});
+    nyeremenytablazatszam = new Menu(XX/2-50, 10, XX/2-10, YY/2.5, {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"});
+    valoszinusegtablazat = new Menu(3*XX/4-45, 10, 139, YY/2.5, {logiccop->royalflushpr(), logiccop->szinsorpr(), logiccop->pokerpr(), logiccop->fullpr(), logiccop->flushpr(), logiccop->sorpr(), logiccop->drillpr(), logiccop->ketparpr(), logiccop->parpr(), logiccop->magaslappr()});
     zsetonok = new Menu(XX/2-10-110/2+10+10-10+110+10, YY-60, XX/2-10-110/2-10, 50, logiccop->zsetongetter());
     tet = new Numdisp(10, YY-10-50, XX/2-10-110/2-10, 50, stoi((logiccop->zsetongetter())[0]));
     widgetek.push_back(tet);
@@ -31,6 +32,7 @@ Grafika::Grafika(int _XX, int _YY, Gamelogic* _logic) : XX(_XX), YY(_YY), logicc
     widgetek.push_back(nyeremenytablazatszoveg);
     widgetek.push_back(nyeremenytablazatszam);
     widgetek.push_back(zsetonok);
+    widgetek.push_back(valoszinusegtablazat);
     kartyamegtartindex = {false, false, false, false, false};
 }
 
