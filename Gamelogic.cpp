@@ -11,7 +11,7 @@
 
 Gamelogic::Gamelogic()
 {
-    zsetonok=100;
+    zsetonok=10;
 }
 
 void Gamelogic::leoszt()
